@@ -10,7 +10,7 @@ const PropertPage =()=>{
       
          const fetchProperty=async()=>{
           
-         const propertyDetails   =await fetch('/property/')
+         const propertyDetails   =await fetch('/api/properties/')
          const json = await propertyDetails.json()
          if(propertyDetails.ok){
            setProperty([...json])

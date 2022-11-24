@@ -4,7 +4,7 @@ const PropertyCard =({property})=>{
         const[Price,setPrice] =useState('')
         const[Name,setName] =useState('')
  const deleteProperty=async()=>{
-        const deleteProperty =await fetch('/property/'+property._id,{
+        const deleteProperty =await fetch('/api/properties/'+property._id,{
                 method: 'DELETE'
         })
  }
@@ -19,7 +19,7 @@ const PropertyCard =({property})=>{
         Price:Price,
         Description:PropertyForm.Description,
        }
-        const update =await fetch('/property/'+property._id,{
+        const update =await fetch('/api/properties/'+property._id,{
                 method: 'PUT',
                 body: JSON.stringify(Property),
                 headers: {
