@@ -1,4 +1,4 @@
-import PropertyForm from '../components/PropertyForm'
+import PropertyForm from './PropertyForm'
 import {useState} from  'react'
 const PropertyCard =({property})=>{
         const[Price,setPrice] =useState('')
@@ -40,11 +40,11 @@ return(
          <p> <strong>Address</strong> : {property.Address}</p>
          <p> <strong>Description</strong> : {property.Description}</p>      
          <p>Post created at {property.createdAt}</p> 
-         <button className="btn"  onClick={deleteProperty}>Delete</button>
-         <button className="btn"  onClick={updateProperty}>Update</button>
+         <button className="deleteButton"  onClick={deleteProperty}>Delete</button>
+         <button className="updateButton"  onClick={updateProperty}>Update</button>
        
         
-         <form className="create" onSubmit={updateProperty}> 
+         <form className="updateTextBox" onSubmit={updateProperty}> 
       
         <label> Edit Price : </label>
         <input

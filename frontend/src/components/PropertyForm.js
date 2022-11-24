@@ -15,7 +15,7 @@ const submitPost =async(e)=>{
    e.preventDefault()
    const Property = {Name,Address,City,ImageLink,Price,Description}
 
-   const response = await fetch('/property', {
+   const response = await fetch('/api/properties', {
      method: 'POST',
      body: JSON.stringify(Property),
      headers: {
@@ -56,7 +56,7 @@ return (
         />
         <label data-testid="l3"> Property Price : </label>
         <input
-        type="text"
+        type="Number"
         data-testid="i3"
         onChange={(e)=> setPrice(e.target.value)}
         value={Price}

@@ -8,9 +8,9 @@ const Navbar = () => {
             <Link to = "/">
                 <h1>Buy2Rent.com</h1>
                 <ul data-testid = "nav2">
+                    <li> <Link to="/"> <a> Properties for sale</a> </Link> </li>
                     <li> <Link to="/buyerpage"> <a> Buyer</a> </Link></li>
                     <li> <Link to="/cspage"> <a> Construction Team Page</a> </Link> </li>
-                    <li> <Link to="/propertysale"> <a> Properties for sale</a> </Link> </li>
                 </ul>
             </Link>
             </div>
