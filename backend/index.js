@@ -7,6 +7,8 @@ const csTeamRoutes = require('./routes/csteams')
 const BuyerInfoRoutes = require('./routes/information')
 
 const PropertyRoutes = require('./routes/properties')
+const InspectionRoutes = require('./routes/inspection-services')
+const AgentRoutes = require('./routes/agents')
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.use((req, res, next) => {
 app.use('/api/csteams',csTeamRoutes)
 app.use('/api/buyerinfo', BuyerInfoRoutes)
 app.use('/api/properties', PropertyRoutes)
+app.use('/api/inspection-services', InspectionRoutes)
+app.use('/api/agents', AgentRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)

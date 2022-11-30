@@ -4,6 +4,8 @@ import {BrowserRouter, Routes, Route, Link,} from 'react-router-dom'
 import PropertyPage from './pages/PropertyPage'
 import CsTeamPage from './pages/CsTeamPage'
 import BuyerPage from './pages/BuyerPage'
+import AgentPage from './pages/AgentPage'
+import ReportPage from './pages/ReportPage'
 import Navbar from './components/Navbar'
 function App() {
   return (
@@ -16,6 +18,16 @@ function App() {
             <Route  exact
               path="/cspage"
               element={<CsTeamPage />}
+            />
+
+          <Route  exact
+              path="/reportpage"
+              element={<ReportPage />}
+            />
+
+          <Route  exact
+              path="/agentpage"
+              element={<AgentPage />}
             />
 
           <Route  exact

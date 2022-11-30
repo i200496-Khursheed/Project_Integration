@@ -28,4 +28,4 @@ const propertySchema=new Schema({
         },
     },{timestamps:true});
 
-module.exports=mongoose.model('User',propertySchema)
+module.exports=mongoose.model('propertyInfo',propertySchema)

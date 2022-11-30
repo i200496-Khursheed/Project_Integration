@@ -1,0 +1,116 @@
+const AgentInfo = require('../models/agentModels')
+const mongoose = require('mongoose')
+
+
+const getAgentInfos = async (req ,res) => {
+    const agentinfos = await AgentInfo.find({}).sort({createdAt: -1})
+
+    res.status(200).json(agentinfos)
+}
+  //GET by ID
+
+  const getAgentInfo = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such Agent info exist'})
+    }
+
+    const agentinfo = await AgentInfo.findById(id)
+
+    if (!agentinfo) {
+        return res.status(404).json({error: 'No such Agent info exist'})
+    }
+
+    res.status(200).json(agentinfo)
+}
+
+    //POST request
+    
+    const createAgentInfo = async (req, res) => {
+        const {Company_Name, Agent_Name, Agent_Description, City, Contact, Email} = req.body
+    
+        let emptyFields = []
+    
+        if (!Company_Name) {
+            emptyFields.push('Company_Name')
+        }
+        if (!Agent_Name) {
+            emptyFields.push('Agent_Name')
+        }
+        if (!Agent_Description) {
+            emptyFields.push('Agent_Description')
+        }
+        if (!City) {
+            emptyFields.push('City')
+        }
+        if (!Contact) {
+            emptyFields.push('Contact')
+        }
+        if (!Email) {
+            emptyFields.push('Email')
+        }
+        if (emptyFields.length > 0) {
+            return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+        }
+    
+        try {
+            const agentinfo = await AgentInfo.create({
+                Company_Name, 
+                Agent_Name, 
+                Agent_Description, 
+                City, 
+                Contact, 
+                Email
+            })
+            res.status(200).json(agentinfo)
+        } catch (error) {
+            res.status(400).json({error: error.message})
+        }
+    }
+
+  //DELETE By ID request
+
+  const deleteAgentInfo = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such agent info exist'})
+    }
+
+    const agentinfo = await AgentInfo.findOneAndDelete({_id: id})
+
+    if (!agentinfo) {
+        return res.status(404).json({error: 'No such agent info exist'})
+    }
+
+    res.status(200).json(agentinfo)
+}
+
+  //UPDATE By ID request
+
+  const updateAgentInfo = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such agent info exist'})
+    }
+
+    const agentinfo = await AgentInfo.findOneAndUpdate({_id: id}, {
+         ...req.body
+    })
+
+    if (!agentinfo) {
+        return res.status(404).json({error: 'No such agent info exist'})
+    }    
+
+    res.status(200).json(agentinfo)
+}
+
+    module.exports = {
+        getAgentInfos,
+        getAgentInfo,
+        createAgentInfo,
+        deleteAgentInfo,
+        updateAgentInfo
+    }
