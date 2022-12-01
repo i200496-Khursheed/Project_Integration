@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-const AgentSchema = new mongoose.Schema(
+const Schema = mongoose.Schema
+
+const AgentSchema = new Schema(
     {
       Company_Name: {
         type: String,

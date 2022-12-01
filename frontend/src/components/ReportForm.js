@@ -17,7 +17,7 @@ function ReportForm()
         
         const report = {id, address, date, exterior,interior}
 
-        const response = await fetch('/reports', {
+        const response = await fetch('/api/inspection-services', {
             method: 'post',
             body: JSON.stringify(report),
             headers:{

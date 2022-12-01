@@ -16,7 +16,7 @@ function UpdateForm()
         e.preventDefault()
         const report = {id, address, date, exterior,interior}
 
-        const response = await fetch('/reports/' + id.toString(),{
+        const response = await fetch('/api/inspection-services/' + id.toString(),{
             method: 'put',
             body: JSON.stringify(report),
             headers:{

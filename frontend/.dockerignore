@@ -1,5 +1,9 @@
 node_modules
-build
-.dockerignore
 Dockerfile
+.git;
+.vscode
+.dockerignore
 Dockerfile.prod
+Dockerfile.dev
+README.md
+Makefile

@@ -1,4 +1,4 @@
-const Csteam = require('../models/csteamModel') //Csteam model
+const Csteam = require('../models/csTeamModel') //Csteam model
 const mongoose = require('mongoose')
 
 // get all csteams

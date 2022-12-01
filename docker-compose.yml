@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  web:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+  api:
+    build: ./backend
+    ports:
+      - 5500:5500
+    environment:
+      DB_URL: mongodb://db/Buy2rent
+    volumes:
+      - ./backend:/app
+  db:
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    volumes:
+      - Buy2rent:/data/db
+      
+volumes:
+  Buy2rent:

@@ -2,7 +2,7 @@
 function Report({report}){
    
      let deleteReport = async () => {
-        const response = await fetch('/reports/' + report._id, {
+        const response = await fetch('/api/inspection-services/' + report._id, {
            method: 'delete' 
         });
          
@@ -16,7 +16,7 @@ function Report({report}){
 
      let updateReport = async () => {
         
-        const response = await fetch('/reports/' + report._id, {
+        const response = await fetch('/api/inspection-services/' + report._id, {
            method: 'patch' 
         });
          

@@ -15,7 +15,7 @@ const AgentForm = () => {
 
     const agent = {Company_Name, Agent_Name, Agent_Description, City, Contact, Email}
     
-    const response = await fetch('/agents', {
+    const response = await fetch('/api/agents', {
       method: 'POST',
       body: JSON.stringify(agent),
       headers: {
